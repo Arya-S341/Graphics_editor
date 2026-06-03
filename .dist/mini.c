@@ -28,6 +28,21 @@ void draw_line(char canvas[HEIGHT][WIDTH], int x1, int y1, int x2, int y2) {
         }
     }
 }
+
+// function to draw a rectangle using 2d charcter array
+void draw_rectangle(char canvas[HEIGHT][WIDTH], int x1, int y1, int x2, int y2) {
+    // Draw the top and bottom edges
+    for (int x = x1; x <= x2; x++) {
+        canvas[y1][x] = '*'; // Top edge
+        canvas[y2][x] = '*'; // Bottom edge
+    }
+    // Draw the left and right edges
+    for (int y = y1; y <= y2; y++) {
+        canvas[y][x1] = '*'; // Left edge
+        canvas[y][x2] = '*'; // Right edge
+    }
+}
+
 int main() {
     char canvas[HEIGHT][WIDTH];
     
@@ -37,9 +52,23 @@ int main() {
             canvas[i][j] = '_';
         }
     }
-
-    // Draw a line from (2, 3) to (15, 10)
-    draw_line(canvas, 2, 3, 15, 10);
+    //switch case to draw a rectangle or a line
+    int choice;
+    printf("Enter 1 to draw a line or 2 to draw a rectangle: ");
+    scanf("%d", &choice);
+    switch (choice) {
+        case 1:
+            // Draw a line from (2, 3) to (15, 10)
+            draw_line(canvas, 2, 3, 15, 10);
+            break;
+        case 2:
+            // Draw a rectangle with corners at (2, 3) and (15, 10)
+            draw_rectangle(canvas, 2, 3, 15, 10);
+            break;
+        default:
+            printf("Invalid choice. Please enter 1 or 2.\n");
+            return 1;
+    }
 
     // Print the canvas
     for (int i = 0; i < HEIGHT; i++) {

@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define WIDTH 20
-#define HEIGHT 15
+#define WIDTH 50
+#define HEIGHT 50
 void draw_line(char canvas[HEIGHT][WIDTH], int x1, int y1, int x2, int y2) {
     // Bresenham's line algorithm
     int dx = abs(x2 - x1);
@@ -13,9 +13,9 @@ void draw_line(char canvas[HEIGHT][WIDTH], int x1, int y1, int x2, int y2) {
     int err = dx - dy;
 
     while (1) {
-        canvas[y1][x1] = '*'; // Mark the point on the canvas
+        canvas[y1][x1] = '*'; 
 
-        if (x1 == x2 && y1 == y2) break; // Line is complete
+        if (x1 == x2 && y1 == y2) break;
 
         int err2 = err * 2;
         if (err2 > -dy) {
@@ -43,6 +43,14 @@ void draw_rectangle(char canvas[HEIGHT][WIDTH], int x1, int y1, int x2, int y2) 
     }
 }
 
+// function to draw triangle using 2d charcter array
+void draw_triangle(char canvas[HEIGHT][WIDTH], int x1, int y1, int x2, int y2, int x3, int y3) {
+    draw_line(canvas, x1, y1, x2, y2);
+    draw_line(canvas, x2, y2, x3, y3);
+    draw_line(canvas, x3, y3, x1, y1);
+}
+
+
 int main() {
     char canvas[HEIGHT][WIDTH];
     
@@ -52,9 +60,9 @@ int main() {
             canvas[i][j] = '_';
         }
     }
-    //switch case to draw a rectangle or a line
+    //switch case to draw a rectangle or a line or a triangle
     int choice;
-    printf("Enter 1 to draw a line or 2 to draw a rectangle: ");
+    printf("Enter 1 to draw a line, 2 to draw a rectangle, or 3 to draw a triangle: ");
     scanf("%d", &choice);
     switch (choice) {
         case 1:
@@ -65,8 +73,12 @@ int main() {
             // Draw a rectangle with corners at (2, 3) and (15, 10)
             draw_rectangle(canvas, 2, 3, 15, 10);
             break;
+        case 3:
+            // Draw a large triangle with vertices at (10, 10), (40, 10), and (25, 35)
+            draw_triangle(canvas, 10, 10, 40, 10, 25, 35);
+            break;
         default:
-            printf("Invalid choice. Please enter 1 or 2.\n");
+            printf("Invalid choice. Please enter 1, 2, or 3.\n");
             return 1;
     }
 

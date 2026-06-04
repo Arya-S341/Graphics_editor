@@ -1,9 +1,10 @@
-//function to draw a line using 2d charcter array
+// Function to draw a line using a 2D character array
 #include <stdio.h>
 #include <stdlib.h>
 
-#define WIDTH 20
-#define HEIGHT 15
+#define WIDTH 40
+#define HEIGHT 20
+
 void draw_line(char canvas[HEIGHT][WIDTH], int x1, int y1, int x2, int y2) {
     // Bresenham's line algorithm
     int dx = abs(x2 - x1);
@@ -28,9 +29,33 @@ void draw_line(char canvas[HEIGHT][WIDTH], int x1, int y1, int x2, int y2) {
         }
     }
 }
+
+void print_canvas(char canvas[HEIGHT][WIDTH]) {
+    // Print X-axis labels
+    printf("   ");
+    for (int x = 0; x < WIDTH; x++) {
+        putchar('0' + (x / 10));
+    }
+    putchar('\n');
+
+    printf("   ");
+    for (int x = 0; x < WIDTH; x++) {
+        putchar('0' + (x % 10));
+    }
+    putchar('\n');
+
+    for (int y = 0; y < HEIGHT; y++) {
+        printf("%2d ", y);
+        for (int x = 0; x < WIDTH; x++) {
+            putchar(canvas[y][x]);
+        }
+        putchar('\n');
+    }
+}
+
 int main() {
     char canvas[HEIGHT][WIDTH];
-    
+
     // Initialize the canvas with underscores
     for (int i = 0; i < HEIGHT; i++) {
         for (int j = 0; j < WIDTH; j++) {
@@ -38,16 +63,12 @@ int main() {
         }
     }
 
-    // Draw a line from (2, 3) to (15, 10)
-    draw_line(canvas, 2, 3, 15, 10);
+    // Draw a triangle using three line segments.
+    // These coordinates create a large isosceles triangle that is easy to visualize.
+    draw_line(canvas, 8, 16, 32, 16);  // base
+    draw_line(canvas, 8, 16, 20, 4);   // left side
+    draw_line(canvas, 32, 16, 20, 4);  // right side
 
-    // Print the canvas
-    for (int i = 0; i < HEIGHT; i++) {
-        for (int j = 0; j < WIDTH; j++) {
-            putchar(canvas[i][j]);
-        }
-        putchar('\n');
-    }
-
+    print_canvas(canvas);
     return 0;
 }

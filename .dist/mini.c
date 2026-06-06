@@ -50,6 +50,32 @@ void draw_triangle(char canvas[HEIGHT][WIDTH], int x1, int y1, int x2, int y2, i
     draw_line(canvas, x3, y3, x1, y1);
 }
 
+//function to draw a circle using 2d charcter array
+void draw_circle(char canvas[HEIGHT][WIDTH], int xc, int yc, int r)
+{
+    int x = 0, y = r;
+    int d = 3 - 2 * r;
+    while (y >= x) {
+        // Draw the eight octants
+        canvas[yc + y][xc + x] = '*';
+        canvas[yc + y][xc - x] = '*';
+        canvas[yc - y][xc + x] = '*';
+        canvas[yc - y][xc - x] = '*';
+        canvas[yc + x][xc + y] = '*';
+        canvas[yc + x][xc - y] = '*';
+        canvas[yc - x][xc + y] = '*';
+        canvas[yc - x][xc - y] = '*';
+
+        if (d < 0) {
+            d += 4 * x + 6;
+        } else {
+            d += 4 * (x - y) + 10;
+            y--;
+        }
+        x++;
+    }
+}
+
 
 int main() {
     char canvas[HEIGHT][WIDTH];
@@ -60,9 +86,9 @@ int main() {
             canvas[i][j] = '_';
         }
     }
-    //switch case to draw a rectangle or a line or a triangle
+    //switch case to draw a rectangle or a line or a triangle or a circle
     int choice;
-    printf("Enter 1 to draw a line, 2 to draw a rectangle, or 3 to draw a triangle: ");
+    printf("Enter 1 to draw a line, 2 to draw a rectangle, 3 to draw a triangle, or 4 to draw a circle: ");
     scanf("%d", &choice);
     switch (choice) {
         case 1:
@@ -77,8 +103,12 @@ int main() {
             // Draw a large triangle with vertices at (10, 10), (40, 10), and (25, 35)
             draw_triangle(canvas, 10, 10, 40, 10, 25, 35);
             break;
+        case 4:
+            // Draw a circle with center at (25, 25) and radius 10
+            draw_circle(canvas, 25, 25, 10);
+            break;
         default:
-            printf("Invalid choice. Please enter 1, 2, or 3.\n");
+            printf("Invalid choice. Please enter 1, 2, 3, or 4.\n");
             return 1;
     }
 

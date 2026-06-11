@@ -1,0 +1,106 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 3311 >>
+stream
+BT
+/F1 12 Tf
+50 760 Td
+(Fake Project Prompt: C ASCII Graphics Editor) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Project Overview:) Tj
+0 -14 Td
+(Build a simple console-based C graphics editor that uses a 50x25 ASCII canvas and supports drawing lines, rectangles, triangles, and circles.) Tj
+0 -14 Td
+(The editor should allow adding, modifying, deleting, and listing objects, and then render the result in text form.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Function Prompts:) Tj
+0 -14 Td
+(1. clear_canvas: Implement clear_canvas\(canvas\) to fill the entire canvas with the EMPTY character for a fresh drawing area.) Tj
+0 -14 Td
+(2. set_pixel: Implement set_pixel\(canvas, x, y\) to safely set a pixel only when coordinates are inside the grid bounds.) Tj
+0 -14 Td
+(3. display_canvas: Implement display_canvas\(canvas\) to print the current canvas rows and columns as ASCII art.) Tj
+0 -14 Td
+(4. draw_line: Implement draw_line\(canvas, x1, y1, x2, y2\) using Bresenham-style line drawing to connect two points.) Tj
+0 -14 Td
+(5. draw_rectangle: Implement draw_rectangle\(canvas, x1, y1, x2, y2\) to draw the outline of a rectangle using two opposite corners.) Tj
+0 -14 Td
+(6. draw_triangle: Implement draw_triangle\(canvas, x1, y1, x2, y2, x3, y3\) by drawing lines between three vertices.) Tj
+0 -14 Td
+(7. draw_circle: Implement draw_circle\(canvas, xc, yc, radius\) using a midpoint circle algorithm to draw a circle outline.) Tj
+0 -14 Td
+(8. draw_object: Implement draw_object\(canvas, object\) to dispatch drawing logic based on the object type.) Tj
+0 -14 Td
+(9. redraw_canvas: Implement redraw_canvas\(canvas, objects, count\) to clear the canvas and redraw every stored object.) Tj
+0 -14 Td
+(10. shape_name: Implement shape_name\(type\) to return a human-readable name for each shape enum value.) Tj
+0 -14 Td
+(11. list_objects: Implement list_objects\(objects, count\) to print stored object details and their coordinates.) Tj
+0 -14 Td
+(12. read_shape_type: Implement read_shape_type\(type\) to read the object type selection from the user.) Tj
+0 -14 Td
+(13. read_object: Implement read_object\(object\) to read shape-specific parameters from the user based on the chosen type.) Tj
+0 -14 Td
+(14. add_object: Implement add_object\(objects, count\) to append a new object to the object list after validating input.) Tj
+0 -14 Td
+(15. delete_object: Implement delete_object\(objects, count\) to remove an object by index and shift the remaining list.) Tj
+0 -14 Td
+(16. modify_object: Implement modify_object\(objects, count\) to update an existing object entry with new user input.) Tj
+0 -14 Td
+(17. print_menu: Implement print_menu\(\) to show the main command menu options to the user.) Tj
+0 -14 Td
+(18. main: Implement main\(\) to run the command loop, handle user choices, and maintain the canvas and objects.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Data Structures:) Tj
+0 -14 Td
+(- ShapeType enum: Define LINE, RECTANGLE, TRIANGLE, CIRCLE values.) Tj
+0 -14 Td
+(- Object struct: Store object type, coordinates, and radius for circles.) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(User Workflow:) Tj
+0 -14 Td
+(1. Start with an empty canvas.) Tj
+0 -14 Td
+(2. Add objects by type and coordinates.) Tj
+0 -14 Td
+(3. Modify or delete objects as needed.) Tj
+0 -14 Td
+(4. Display the canvas to view the current drawing.) Tj
+0 -14 Td
+(5. List objects for reference.) Tj
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000247 00000 n 
+0000003610 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+3680
+%%EOF
